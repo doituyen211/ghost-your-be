@@ -1,0 +1,7 @@
+tables:
+  users:
+    fields:
+      id: { type: integer, primary_key: true }
+      name: { type: string, faker: vietnam_name }
+      phone: { type: string, faker: vietnam_phone }
+      address: { type: string, faker: vietnam_address }

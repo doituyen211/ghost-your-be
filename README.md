@@ -12,3 +12,28 @@ Ghost Your BE - Cái Bóng BE của bạn
 * Generate Mock API automatically** to support frontend dev
 * Compare Mock API vs Real API** → alert discrepancies
 ---
+Structure
+>
+ghost-your-be/
+├── cli.py                   # Main CLI commands
+├── generators/              # Data generation logic
+│   ├── vietnam_provider.py  # Custom Faker provider
+│   ├── schema_loader.py     # Load và validate schema.yml
+│   └── data_generator.py    # Tạo dữ liệu mẫu
+├── database/                # Database integration
+│   ├── db_connector.py      # Kết nối và lưu dữ liệu vào DB
+│   └── db_config.py         # Tạo cấu hình DB từ API
+├── mock_api/                # Mock API logic
+│   ├── mock_server.py       # FastAPI server cho mock API
+│   └── api_generator.py     # Tạo response API từ schema
+├── comparers/               # API comparison logic
+│   └── api_diff.py          # So sánh mock API và API thật
+├── utils/                   # Utilities
+│   ├── license.py           # Xử lý license key
+│   └── file_exporter.py     # Xuất dữ liệu ra file
+├── tests/                   # Unit tests
+│   ├── test_generators.py
+│   ├── test_database.py
+│   └── test_mock_api.py
+├── setup.py                 # Package configuration
+└── README.md                # Documentation
