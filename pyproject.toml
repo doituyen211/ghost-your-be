@@ -4,7 +4,7 @@ version = "0.1.2"
 description = "A powerful tool for generating mock data and APIs"
 authors = ["Ghost Your BE Team"]
 readme = "README.md"
-packages = [{include = "ghost-your-be"}]
+packages = [{include = "ghost_your_be"}]
 license = "MIT"
 repository = "https://github.com/yourusername/ghost-your-be"
 documentation = "https://ghost-your-be.readthedocs.io"
