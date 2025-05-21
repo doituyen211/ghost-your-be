@@ -18,7 +18,7 @@ poetry run ghost-your-be generate --schema schema.yml --count 10 --db-url mongod
 # create schema from api
 poetry run ghost-your-be generate-schema --api-url https://api.example.com/users --output schema.yml
 
-# run mock api
+# run mock api ✅
 poetry run ghost-your-be mock-api --schema schema.yml --port 8000
 
 # compare api
