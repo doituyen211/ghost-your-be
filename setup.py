@@ -19,7 +19,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "ghost-your-be = ghost-your-be.cli:cli",
+            "ghost-your-be =  ghost_your_be.cli:cli",
         ],
     },
     author="Doi Trong Tuyen",
