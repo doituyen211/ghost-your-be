@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ghost-your-be"
-version = "0.1.0"
+version = "0.1.2"
 description = "A powerful tool for generating mock data and APIs"
 authors = ["Ghost Your BE Team"]
 readme = "README.md"
@@ -21,6 +21,9 @@ classifiers = [
     "Topic :: Software Development :: Testing",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+
+[tool.poetry.scripts]
+ghost-your-be = "ghost_your_be.cli:cli"
 
 [tool.poetry.dependencies]
 python = "^3.8"
