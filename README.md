@@ -27,7 +27,7 @@ poetry install
 pip install ghost-your-be
 ```
 
-### Basic Usage
+### Basic Usage (if you not development, just remove "poetry run" before run command)
 
 1. **Generate Data from Schema**:
 ```bash
