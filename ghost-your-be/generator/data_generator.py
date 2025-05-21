@@ -8,14 +8,24 @@ class DataGenerator:
         self.faker = Faker()
         self.faker.add_provider(VietnamProvider)
 
-    def generate(self, count):
+    def generate(self, count, table_name=None):
         data = []
-        for table_name, table_schema in self.schema.tables.items():
+        tables_to_generate = [table_name] if table_name else self.schema.tables.keys()
+        
+        for table_name in tables_to_generate:
+            if table_name not in self.schema.tables:
+                raise ValueError(f"Table '{table_name}' not found in schema")
+                
+            table_schema = self.schema.tables[table_name]
             for _ in range(count):
                 row = {}
                 for field_name, field_schema in table_schema.fields.items():
                     if field_schema.faker:
-                        row[field_name] = getattr(self.faker, field_schema.faker)()
+                        value = getattr(self.faker, field_schema.faker)()
+                        # Cắt dữ liệu nếu có max_length
+                        if field_schema.max_length and isinstance(value, str):
+                            value = value[:field_schema.max_length]
+                        row[field_name] = value
                     else:
                         if field_schema.type == "integer":
                             row[field_name] = self.faker.random_int(1, 1000)

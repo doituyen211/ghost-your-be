@@ -10,23 +10,24 @@ from .util.license import validate_license
 
 @click.group()
 def cli():
-    """Mockmatic CLI: Tạo dữ liệu giả, mock API và so sánh API."""
+    """ghost-your-be CLI: Tạo dữ liệu giả, mock API và so sánh API."""
     pass
 
 @cli.command()
 @click.option("--schema", required=True, help="Path to schema YAML file")
 @click.option("--count", default=5, help="Number of rows to generate")
-@click.option("--db-url", help="Database URL (e.g., sqlite:///data.db, mysql://user:pass@localhost/db, mongodb://localhost:27017/db)")
+@click.option("--db-url", help="Database URL (e.g., sqlite:///data.db, mysql+pymysql://user:pass@localhost:3306/db, mongodb://localhost:27017/db)")
 @click.option("--table", help="Table/collection name to save data")
 @click.option("--output", help="Output file (JSON or CSV)")
-def generate(schema, count, db_url, table, output):
+@click.option("--drop-table", is_flag=True, help="Xóa bảng/collection trước khi lưu dữ liệu")
+def generate(schema, count, db_url, table, output, drop_table):
     """Tạo dữ liệu giả từ schema.yml và lưu vào database hoặc file."""
     generator = DataGenerator(schema_path=schema)
-    data = generator.generate(count)
+    data = generator.generate(count, table_name=table)
     
     if db_url and table:
         connector = DBConnector(db_url)
-        if connector.save_to_db(table, data):
+        if connector.save_to_db(table, data, drop_table=drop_table):
             click.echo(f"Lưu {count} bản ghi vào {table} ({db_url})")
         else:
             click.echo("Lưu vào database thất bại!")

@@ -5,6 +5,7 @@ class FieldSchema(BaseModel):
     type: str
     faker: str | None = None
     primary_key: bool = False
+    max_length: int | None = None  # Thêm max_length
 
 class TableSchema(BaseModel):
     fields: dict[str, FieldSchema]
