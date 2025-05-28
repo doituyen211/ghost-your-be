@@ -50,7 +50,8 @@ def generate_schema(api_url, output):
 @cli.command()
 @click.option("--schema", required=True, help="Path to schema YAML file")
 @click.option("--port", default=8000, help="Port for mock server")
-def mock_api(schema, port):
+@click.option("--count", default=5, help="Number of rows to generate")
+def mock_api(schema, port, count):
     """Chạy mock API server."""
     import os
     os.environ["SCHEMA_PATH"] = schema

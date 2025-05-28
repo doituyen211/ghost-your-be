@@ -6,13 +6,13 @@ tables:
       phone: { type: string, faker: vietnam_phone }
       address: { type: string, faker: vietnam_address }
       motorcycle: { type: string, faker: vietnam_motorcycle }
-      car: { type: string, faker: vietnam_car }
-      year: { type: integer, faker: vietnam_year }
-  accounts:
-    fields:
-      id: { type: integer, primary_key: true }
-      month: { type: integer, faker: vietnam_month }
-      day: { type: integer, faker: vietnam_day }
+      # car: { type: string, faker: vietnam_car }
       email: { type: string, faker: vietnam_email }
-      date: { type: string, faker: vietnam_date }
-      time: { type: string, faker: vietnam_time }
+      # year: { type: integer, faker: vietnam_year }
+  # accounts:
+  #   fields:
+  #     id: { type: integer, primary_key: true }
+  #     month: { type: integer, faker: vietnam_month }
+  #     day: { type: integer, faker: vietnam_day }
+  #     date: { type: string, faker: vietnam_date }
+  #     time: { type: string, faker: vietnam_time }

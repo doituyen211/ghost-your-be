@@ -67,6 +67,8 @@ tables:
       address: { type: string, faker: vietnam_address }
 ```
 
+In addition, there are providers such as(add "vietnam" before "_".Example: vietmam_email - for email): _email, _motocycle, _car, _year, _month, _day, _date, _time, _password, _username, _age, _gender, _job, _salary, _comapny, _school
+
 ## 🔧 Configuration
 
 ### Database URLs

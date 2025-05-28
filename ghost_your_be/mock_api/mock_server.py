@@ -10,10 +10,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
-@app.get("/mock/{endpoint}")
+@app.get("/mock/{endpoint}/{count}")
 async def mock_endpoint(
     endpoint: str,
-    count: int = Query(default=5, ge=1, le=1000, description="Number of records to generate"),
+    # count: int = Query(default=5, ge=1, le=1000, description="Number of records to generate"),
+    count: int,
     code: int = Query(default=200, description="HTTP status code to return"),
     message: str = Query(default="Success", description="Response message")
 ):
